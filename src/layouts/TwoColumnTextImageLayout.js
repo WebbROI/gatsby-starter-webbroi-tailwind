@@ -11,8 +11,8 @@ const TwoColumnTextImageLayout = ({ textTitle, textContent, imageData, rowRevers
         const imageDataDefault = data.imageDefault.childImageSharp.fluid
 
         return (
-          <div className={`flex sm:flex-col sm:flex-col-reverse ${rowReverse ? 'lg:flex-row-reverse' : null} mb-16`}>
-            <div className='sm:w-full lg:w-1/2 flex flex-col justify-center'>
+          <div className={`flex sm:flex-col sm:flex-col-reverse ${rowReverse ? 'md:flex-row-reverse lg:flex-row-reverse' : null} mb-16`}>
+            <div className='sm:w-full md:w-1/2 lg:w-1/2 flex flex-col justify-center'>
               <h2 className='font-display text-4xl'>{textTitle}</h2>
               <p>{textContent}</p>
 
@@ -28,7 +28,7 @@ const TwoColumnTextImageLayout = ({ textTitle, textContent, imageData, rowRevers
               }
             </div>
 
-            <div className={`sm:w-full sm:mt-4 lg:w-1/2 ${rowReverse ? 'lg:ml-0 lg:mr-8' : 'lg:ml-8 lg:mr-0'}`}>
+            <div className={`sm:w-full sm:mt-4 md:w-1/2 lg:w-1/2 ${rowReverse ? 'md:ml-0 md:mr-8 lg:ml-0 lg:mr-8' : 'md:ml-8 md:mr-0 lg:ml-8 lg:mr-0'}`}>
               <Img className='z-0' fluid={imageData ? imageData : imageDataDefault} alt='image' />
             </div>
           </div>

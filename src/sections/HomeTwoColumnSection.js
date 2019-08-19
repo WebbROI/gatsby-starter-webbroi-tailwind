@@ -12,7 +12,7 @@ const HomeTwoColumnsSection = () => (
         const imageDataThree = data.imageThree.childImageSharp.fluid
 
         return (
-          <div className='sm:w-11/12 sm:my-4 lg:w-10/12 lg:my-16 mx-auto'>
+          <div className='sm:w-11/12 sm:my-4 md:w-11/12 md:my-16 lg:w-10/12 lg:my-16 mx-auto'>
             <TwoColumnTextImageLayout 
               textTitle='Lorem Ipsum'
               textContent='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut ultricies dolor. Proin interdum lorem ipsum, vel volutpat velit ultricies et.'

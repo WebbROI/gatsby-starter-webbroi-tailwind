@@ -48,13 +48,13 @@ class ContactForm extends Component {
   render() {
     return (
       <form className='container w-full mx-auto max-w-lg' action='#'>
-        <div className="flex flex-wrap mx-3 mb-6">
-          <div class="w-full lg:w-1/2 px-3 mb-6 md:mb-0">
+        <div className="flex flex-wrap mx-3">
+          <div class="w-full lg:w-1/2 px-3 mb-3">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="fname">
               First Name
             </label>
             <input 
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
               id="fname"
               type="text" 
               placeholder="Jane"
@@ -62,10 +62,10 @@ class ContactForm extends Component {
               onChange={e => this.setState({ fname: e.target.value })}
               required
             />
-            {this.validator.message('first_name', this.state.fname, 'required|alpha')}
+            {this.validator.message('first_name', this.state.fname, 'required|alpha', {className: 'text-red-500 text-xs italic'})}
           </div>
 
-          <div class="w-full lg:w-1/2 px-3">
+          <div class="w-full lg:w-1/2 px-3 mb-3">
             <label 
               class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" 
               for="lname"
@@ -73,7 +73,7 @@ class ContactForm extends Component {
               Last Name
             </label>
             <input 
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
               id="lname"
               type="text" 
               placeholder="Doe"
@@ -81,11 +81,11 @@ class ContactForm extends Component {
               onChange={e => this.setState({ lname: e.target.value })}
               required
             />
-            {this.validator.message('last_name', this.state.lname, 'required|alpha')}
+            {this.validator.message('last_name', this.state.lname, 'required|alpha', {className: 'text-red-500 text-xs italic'})}
           </div>
         </div>
 
-        <div class="flex flex-wrap mx-3 mb-6">
+        <div class="mx-3 mb-3">
           <div class="w-full px-3">
             <label 
               class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -94,7 +94,7 @@ class ContactForm extends Component {
               Email
             </label>
             <input 
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
               id="email" 
               type="email" 
               placeholder='jane@doe.com'
@@ -102,11 +102,11 @@ class ContactForm extends Component {
               onChange={e => this.setState({ email: e.target.value })}
               required
             />
-            {this.validator.message('email', this.state.email, 'required|email')}
+            {this.validator.message('email', this.state.email, 'required|email', {className: 'text-red-500 text-xs italic'})}
           </div>
         </div>
 
-        <div class="flex flex-wrap mx-3 mb-6">
+        <div class="mx-3 mb-6">
           <div class="w-full px-3">
             <label 
               class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -115,42 +115,42 @@ class ContactForm extends Component {
               Message
             </label>
             <textarea 
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
               id="message" 
               placeholder='Your message here.'
               value={this.state.message}
               onChange={e => this.setState({ message: e.target.value })}
               required
             />
-            {this.validator.message('message', this.state.message, 'required|max:1000')}
+            {this.validator.message('message', this.state.message, 'required|max:1000', {className: 'text-red-500 text-xs italic'})}
           </div>
         </div>
 
-        <div class="flex flex-wrap mx-3 mb-6">
+        <div class="mx-3 mb-6">
           {this.state.mailSent &&
-            <div role='alert'>
-              <div class="bg-green-500 text-white font-bold rounded-t px-4 py-2">
+            <div className='mx-3 mb-6' role='alert'>
+              <div class="bg-green-500 text-white font-bold px-4 py-2">
                 Thank you!
               </div>
-              <div class="border border-t-0 border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
+              <div class="border border-t-0 border-green-400 bg-green-100 px-4 py-3 text-green-700">
                 <p>Your message has been sent. We will contact you soon.</p>
               </div>
             </div>
           }
 
           {this.state.mailError &&
-            <div role='alert'>
-              <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+            <div className='mx-3 mb-6' role='alert'>
+              <div class="bg-red-500 text-white font-bold px-4 py-2">
                 Oops!
               </div>
-              <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+              <div class="border border-t-0 border-red-400 bg-red-100 px-4 py-3 text-red-700">
                 <p>Sorry, there was a problem sending your message. Please refresh browser and try again. If problem persists, please use other contact channels. Thanks!</p>
               </div>
             </div>
           }
 
           <button 
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold ml-4 mb-8 py-2 px-4"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold mx-3 mb-8 py-2 px-4"
             type='submit' 
             onClick={e => this.handleFormSubmit(e)} 
           >

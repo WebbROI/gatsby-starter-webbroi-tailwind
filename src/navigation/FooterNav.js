@@ -9,7 +9,7 @@ const FooterNav = () => (
         const siteTitle = data.site.siteMetadata.title
 
         return (
-          <footer className='bg-black text-white text-center px-4 py-16'>
+          <footer className='text-black text-center px-4 py-16'>
             © {new Date().getFullYear()} {siteTitle}
           </footer>
         )

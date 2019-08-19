@@ -12,9 +12,9 @@ export default () => (
     />
 
     <OneColumnPageLayout>
-      <h2 className='font-display text-4xl text-center'>Hello. We’ve been expecting you.</h2>
+      <h2 className='font-display text-4xl text-center sm:leading-none sm:mb-4'>Hello. We’ve been expecting you.</h2>
 
-      <p className='text-center'>Fill in the form, or, if you prefer, <a href='mailto:val@webbroi.dev'>send us an email</a>.</p>
+      <p className='text-center sm:mb-4'>Fill in the form, or, if you prefer, <a href='mailto:val@webbroi.dev'>send us an email</a>.</p>
     </OneColumnPageLayout>
 
     <ContactForm />
